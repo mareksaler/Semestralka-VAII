@@ -87,7 +87,7 @@ class TatryController extends Controller
         $newImageName = uniqid() . '-' . '.' . $request->image->extension();
         
         $request->image->move(public_path('img/tatry'), $newImageName);
-        // dd($request);
+        
         Tatry::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
