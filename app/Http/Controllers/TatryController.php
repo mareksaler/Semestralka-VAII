@@ -142,10 +142,15 @@ class TatryController extends Controller
             'area' => Rule::in(['V', 'Z', 'N']) 
         ]);
 
+        $newImageName = uniqid() . '-' . '.' . $request->image->extension();
+        
+        $request->image->move(public_path('img/tatry'), $newImageName);
+
         Tatry::where('id', $id)->update([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'slug' => SlugService::createSlug(Tatry::class, 'slug', $request->title),
+            'image' => $newImageName,
             'user_id' => auth()->user()->id,
             'dlzka' => $request->input('dlzka'),
             'cas' => $request->input('cas'),
