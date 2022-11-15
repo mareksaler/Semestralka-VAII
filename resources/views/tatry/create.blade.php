@@ -19,27 +19,27 @@
     @endif
 
 
-    <form action="/vysokeTatry" method="POST" enctype="multipart/form-data">
+    <form action="/vysokeTatry" method="POST" enctype="multipart/form-data" name="createForm" onsubmit="return validate()">
         @csrf
 
         <div class="row pb-2  justify-content-center">
             <div class="col-md-6">
                 <label for="nazov" class="form-label">Názov</label>
-                <input type="text" class="form-control" id="nazov" placeholder="Nazov" name="title">
+                <input type="text" class="form-control" id="nazov" placeholder="Nazov" name="title" required minlength="3" maxlength="100">
             </div>
         </div>
 
         <div class="row pb-2  justify-content-center">
             <div class="col-md-6">
                 <label for="obsah" class="form-label">Obsah</label>
-                <textarea class="form-control" placeholder="Obsah..." id="obash" name="description"></textarea>
+                <textarea class="form-control" placeholder="Obsah..." id="obsah" name="description" required minlength="5" ></textarea>
             </div>
         </div>
 
         <div class="row pb-2 justify-content-center">
             <div class="col-md-6">
                 <label for="formFile" class="form-label">Obrazok</label>
-                <input class="form-control" type="file" id="formFile" name="image">
+                <input class="form-control" type="file" id="formFile" name="image" required>
             </div>
         </div>
         <div class="row pb-2 justify-content-center">
@@ -57,7 +57,7 @@
         <div class="row pb-2 justify-content-center">
             <div class="col-md-6">
                 <label for="area" class="form-label">Kategória:</label>
-                <select class="form-select" aria-label="Default select example" name="area" id="area">
+                <select class="form-select" aria-label="Default select example" name="area" id="area" required>
                     <option value="V">Vysoké Tatry</option>
                     <option value="N">Nízke Tatry</option>
                     <option value="Z">Západné Tatry</option>
@@ -67,10 +67,11 @@
 
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <button type="submit" class="btn btn-primary">Pridať</button>
+                <button disabled type="submit" class="btn btn-primary" id="create">Pridať</button>
             </div>
         </div>
 
     </form>
 </div>
+<script type="text/javascript" src="{{ URL::asset('js/javascript.js') }}"></script>
 @endsection

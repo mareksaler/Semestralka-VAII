@@ -31,14 +31,14 @@
         <div class="row pb-2  justify-content-center">
             <div class="col-md-6">
                 <label for="nazov" class="form-label">Názov</label>
-                <input type="text" class="form-control" id="nazov" value="{{ $tatry->title }}" name="title">
+                <input type="text" class="form-control" id="nazov" value="{{ $tatry->title }}" name="title" required minlength="3" maxlength="100">
             </div>
         </div>
 
         <div class="row pb-2  justify-content-center">
             <div class="col-md-6">
                 <label for="obsah" class="form-label">Obsah</label>
-                <textarea class="form-control" id="obash" name="description">{{ $tatry->description }}</textarea>
+                <textarea class="form-control" id="obsah" name="description" required minlength="5">{{ $tatry->description }}</textarea>
             </div>
         </div>
 
@@ -66,7 +66,7 @@
         <div class="row pb-2 justify-content-center">
             <div class="col-md-6">
                 <label for="area" class="form-label">Kategória:</label>
-                <select class="form-select" aria-label="Default select example" name="area" id="area">
+                <select class="form-select" aria-label="Default select example" name="area" id="area" required>
                     <option <?php if(strcmp($tatry->area, "V") === 0) echo 'selected'?> value="V">Vysoké Tatry</option>
                     <option <?php if(strcmp($tatry->area, "N") === 0) echo 'selected'?> value="N">Nízke Tatry</option>
                     <option <?php if(strcmp($tatry->area, "Z") === 0) echo 'selected'?> value="Z">Západné Tatry</option>
@@ -82,4 +82,5 @@
         
     </form>
 </div>
+<script type="text/javascript" src="{{ URL::asset('js/javascript.js') }}"></script>
 @endsection

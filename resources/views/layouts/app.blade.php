@@ -19,7 +19,9 @@
 
     <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+
     <!-- <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css"> -->
+
 </head>
 
 <body>
@@ -99,6 +101,7 @@
             @include('layouts.footer')
         </div>
     </div>
+
 </body>
 
 </html>
