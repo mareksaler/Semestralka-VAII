@@ -93,21 +93,22 @@
 
 
     @if (Auth::check())
-    <a role="button" class="btn btn-success" href="vysokeTatry/create">
+    <a role="button" class="btn btn-success" href="zapadneTatry/create">
         Pridať túru
     </a>
     @endif
 
     <div class="row farba-text p-2">
-        <div class="d-flex justify-content-evenly flex-wrap">
+        <div class="d-flex justify-content-start flex-wrap">
             @foreach ($tatry as $item)
-            <a href="/vysokeTatry/{{ $item->slug }}">
+            @if (strcmp($item->area, "Z") === 0)
+            <a href="/zapadneTatry/{{ $item->slug }}">
                 <div class="card karta m-1">
 
                     <img src="{{ 'img/tatry/' . $item->image }}" height="160px" class="card-img-top" alt="...">
 
                     <div class="card-body">
-                        <a href="/vysokeTatry/{{ $item->slug }}" data-bs-toggle="modal" class="karta-nadpis"
+                        <a href="/zapadneTatry/{{ $item->slug }}" data-bs-toggle="modal" class="karta-nadpis"
                             data-bs-target="">
                             <h5 class="card-title">
                                 {{ $item->title }}
@@ -116,12 +117,12 @@
                         @if (Auth::check())
                         <div class="row">
                             <div class="col">
-                                <a role="button" class="btn btn-primary btn-sm" href="vysokeTatry/{{$item->id}}/edit">
+                                <a role="button" class="btn btn-primary btn-sm" href="zapadneTatry/{{$item->id}}/edit">
                                     Upraviť
                                 </a>
                             </div>
                             <div class="col ">
-                                <form method="POST" action="/vysokeTatry/{{ $item->id }}">
+                                <form method="POST" action="/zapadneTatry/{{ $item->id }}">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger btn-sm">Vymazať</button>
@@ -132,6 +133,7 @@
                     </div>
                 </div>
             </a>
+            @endif
             @endforeach
         </div>
     </div>

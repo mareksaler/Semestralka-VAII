@@ -102,8 +102,9 @@
     @endif
 
     <div class="row farba-text p-2">
-        <div class="d-flex justify-content-evenly flex-wrap">
+        <div class="d-flex justify-content-start flex-wrap ">
                 @foreach ($tatry as $item)
+                @if (strcmp($item->area, "V") === 0)
                     <a href="/vysokeTatry/{{ $item->slug }}">
                         <div class="card karta m-1">
                         
@@ -134,6 +135,7 @@
                             </div>
                         </div>
                     </a>
+                @endif        
                 @endforeach
          </div>
     </div>

@@ -4,7 +4,7 @@
 <div class="container-lg bleda mt-3 pt-3 pb-3">
     <div class="row">
         <div class="col-12">
-            <h1 class="zarovanaj-na-sted">Pridaj túru - Vysoké Tatry</h1>
+            <h1 class="zarovanaj-na-sted">Pridaj túru</h1>
         </div>
     </div>
 
@@ -59,8 +59,8 @@
                 <label for="area" class="form-label">Kategória:</label>
                 <select class="form-select" aria-label="Default select example" name="area" id="area">
                     <option value="V">Vysoké Tatry</option>
-                    <option value="Z">Nízke Tatry</option>
-                    <option value="N">Západné Tatry</option>
+                    <option value="N">Nízke Tatry</option>
+                    <option value="Z">Západné Tatry</option>
                 </select>
             </div>
         </div>

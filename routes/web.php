@@ -20,11 +20,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PagesController::class, 'index']); // [class, metoda]
 
-//Route::resource('/vysokeTatry', VysokeTatryController::class);
+
 Route::resource('/vysokeTatry', TatryController::class);
-Route::get('/nizkeTatry', [TatryController::class, 'nizkeTatry']);
-Route::get('/zapadneTatry', [TatryController::class, 'zapadneTatry']);
-//Route::view('/nizkeTatry', 'nizkeTatry');
+Route::resource('/nizkeTatry', TatryController::class);
+Route::resource('/zapadneTatry', TatryController::class);
+
+// Route::get('/nizkeTatry', [TatryController::class, 'nizkeTatry']);
+// Route::get('/zapadneTatry', [TatryController::class, 'zapadneTatry']);
+
+Route::controller(TatryController::class)->group(function () {
+    Route::get('/nizkeTatry', 'nizkeTatry');
+    Route::get('/zapadneTatry', 'zapadneTatry');
+    Route::get('/vysokeTatry', 'vysokeTatry');
+});
 
 // Route::get('/vysokeTatry', [TatryController::class, 'vysokeTatry']);
 

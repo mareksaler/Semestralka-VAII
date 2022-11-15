@@ -19,7 +19,12 @@
     @endif
     
     
-    <form action="/vysokeTatry/{{ $tatry->id }}" method="POST" enctype="multipart/form-data">
+    <form action="/<?php if(strcmp($tatry->area, "Z") === 0)
+                            {echo 'zapadneTatry';} 
+                            elseif (strcmp($tatry->area, "N") === 0) {
+                                echo 'nizkeTatry';
+                            } 
+                            else  {echo 'vysokeTatry';} ?>/{{ $tatry->id }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 

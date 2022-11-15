@@ -11,8 +11,8 @@
         <img src="{{ asset('img/tatry/' . $tatry->image) }}" class="tatry-obrazok" alt="{{ $tatry->title }}">
     </div>
     <div class="row">
-        <div class="col-3 col-sm-2 fs-4">Dĺžka túry: {{ $tatry->dlzka }}</div>
-        <div class="col-3 col-sm-2 fs-4">Čas túry: {{ $tatry->cas }}</div>
+        <div class="col-3 col-sm-2 fs-4">Dĺžka túry: {{ $tatry->dlzka }} km</div>
+        <div class="col-3 col-sm-2 fs-4">Čas túry: {{ $tatry->cas }} hod</div>
     </div>
     <div class="row">
         <p class="m-2">

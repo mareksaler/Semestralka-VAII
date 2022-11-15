@@ -12,7 +12,7 @@ class TatryController extends Controller
     public function __construct()
     {
         $this->middleware('auth', [
-            'except' => ['index', 'show', 'nizkeTatry', 'zapadneTatry']
+            'except' => ['index', 'show', 'nizkeTatry', 'zapadneTatry', 'vysokeTatry']
         ]);
     }
 
@@ -59,6 +59,7 @@ class TatryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param  string  $area
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -84,11 +85,9 @@ class TatryController extends Controller
         ]);
 
         $newImageName = uniqid() . '-' . '.' . $request->image->extension();
-
-        $request->image->move(public_path('img/tatry'), $newImageName);
-
         
-
+        $request->image->move(public_path('img/tatry'), $newImageName);
+        // dd($request);
         Tatry::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
@@ -100,7 +99,7 @@ class TatryController extends Controller
             'area' => $request->input('area')
         ]);
         // dd($request);
-        return redirect('/vysokeTatry')->with('message', 'Uspesne pridane.');
+        return redirect('/' . explode('/', $request->getPathInfo())[1])->with('message', 'Uspesne pridane.');
     }
 
     /**
@@ -152,8 +151,9 @@ class TatryController extends Controller
             'cas' => $request->input('cas'),
             'area' => $request->input('area')
         ]);
-
-        return redirect('/vysokeTatry')->with('message', 'Uspesne upravene.');
+        // dd($request);
+        return redirect('/' . explode('/', $request->getPathInfo())[1])->with('message', 'Uspesne upravene.');
+        // return redirect('/vysokeTatry')->with('message', 'Uspesne upravene');
     }
 
     /**
@@ -167,6 +167,6 @@ class TatryController extends Controller
         $tatry = Tatry::where('id', $id);
         $tatry->delete();
 
-        return redirect('/vysokeTatry')->with('message', 'Uspesne odstraneny.');
+        return redirect()->back()->with('message', 'Uspesne odstraneny.');
     }
 }
