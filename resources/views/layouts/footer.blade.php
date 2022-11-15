@@ -27,9 +27,9 @@
                                     <li>
                                         <a href="/zapadneTatry" class="odkaz">Západné Tatry</a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="#" class="odkaz">Akcie 2022</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                             <!--Grid column-->

@@ -48,9 +48,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="/zapadneTatry">Západné Tatry</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link active" href="#">Akcie 2023</a>
-                        </li>
+                        </li> -->
                     </ul>
                     <ul class="navbar-nav">
                         <!-- Authentication Links -->
