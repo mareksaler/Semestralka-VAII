@@ -45,7 +45,7 @@
         <div class="row pb-2 justify-content-center">
             <div class="col-md-6">
                 <label for="formFile" class="form-label">Obrazok</label>
-                <input class="form-control" type="file" id="formFile" name="image">
+                <input class="form-control" type="file" id="formFile" name="image" accept=".jpg,.png,.jpeg">
             </div>
         </div>
 

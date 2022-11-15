@@ -13,7 +13,7 @@ function updateSubmitButton() {
     const fileValue = file.value ;
     
     if ((titleValue == "") || titleValue.length < 3) {
-        submitBtn.setAttribute('disabled', 'disabled');  
+        submitBtn.setAttribute('disabled', 'disabled');
         return;
     }
 
@@ -39,6 +39,13 @@ function updateSubmitButton() {
 
     submitBtn.removeAttribute('disabled');
 }
+
+file.onchange = function() {
+    if(this.files[0].size > 5048){
+       alert("Obrazok je prilis velky! Max 5 MB");
+       this.value = "";
+    };
+};
 
 title.addEventListener('input', updateSubmitButton);
 dlzka.addEventListener('input', updateSubmitButton);

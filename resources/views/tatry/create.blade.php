@@ -25,7 +25,7 @@
         <div class="row pb-2  justify-content-center">
             <div class="col-md-6">
                 <label for="nazov" class="form-label">Názov</label>
-                <input type="text" class="form-control" id="nazov" placeholder="Nazov" name="title" required minlength="3" maxlength="100">
+                <input type="text" class="form-control vstup" id="nazov" placeholder="Nazov" name="title" required minlength="3" maxlength="100">
             </div>
         </div>
 
@@ -39,7 +39,7 @@
         <div class="row pb-2 justify-content-center">
             <div class="col-md-6">
                 <label for="formFile" class="form-label">Obrazok</label>
-                <input class="form-control" type="file" id="formFile" name="image" required>
+                <input class="form-control" type="file" id="formFile" name="image" required accept=".jpg,.png,.jpeg">
             </div>
         </div>
         <div class="row pb-2 justify-content-center">
